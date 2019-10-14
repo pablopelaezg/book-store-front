@@ -1,8 +1,31 @@
 .cart-table {
   width: 100%;
+}
 
+.cart-container {
+  margin-top: 50px;
 }
 
 .cart-table-header {
   text-align: center;
+}
+
+.no-items-msg {
+  display: inline;
+}
+
+.total-container {
+  width: 100%;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.right {
+  float: right;
+  margin-right: 35px;
+}
+
+.total-text {
+  font-size: 20px;
+  font-weight: bold;
 }

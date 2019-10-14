@@ -1,4 +1,4 @@
-<a routerLink="/items">Volver a productos</a>
+<a routerLink="/items" class="button-normal">Volver a productos</a>
 
 <span class="no-items-msg" *ngIf="!this.cartService.hasItemsInCart()">No hay productos en el carrito</span>
 
@@ -35,10 +35,17 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <div class="total-container">
+    <div>
+      <span class="right total-text">Total: {{total}}</span>
+    </div>
+    <div class="right">
+      <div class="button-normal" (click)="openConfirmDialog()">Confirmar Compra</div>
+      <div class="button-normal" (click)="openDeleteDialog()" style="margin-right: 10px">Cancelar Compra</div>
+    </div>
+  </div>
 
-  <span>Total: {{total}}</span>
 
-  <button mat-raised-button (click)="openConfirmDialog()">Confirmar Compra</button>
 </div>
 
 

@@ -61,6 +61,11 @@ export class CartService {
     this.totalCart.next(Array.from(this.cart.values()).reduce((t, {units, price}) => t + units*price, 0));
   }
 
+  clearCart() {
+    this.cart.clear();
+    this.updateTotalCart();
+  }
+
   submitInvoice() {
       this.http.post(environment.baseUrl + environment.uris.invoice, {
         itemsToBuy: Array.from(this.cart.values()).map<InvoiceItem>(item => {
@@ -70,8 +75,7 @@ export class CartService {
           }
         })
       }).subscribe(result => {
-        this.cart.clear();
-        this.updateTotalCart();
+        this.clearCart();
       })
   }
 

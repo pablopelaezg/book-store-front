@@ -1,21 +1,18 @@
-mat-form-field {
-  margin: 10px;
-}
-
-.title {
-  text-align: center;
-}
-
-.options-wrapper{
-  text-align: center;
-}
-
-.option-select {
+.store-logo {
+  max-width: 300px;
+  max-height: 150px;
+  width: 20%;
+  height: 10%;
   display: inline-block;
   text-align: center;
 }
 
-.submit-button {
+.title {
+  display: inline-block;
+  font-size: 10px;
+}
+
+.title-wrapper {
   text-align: center;
 }
 

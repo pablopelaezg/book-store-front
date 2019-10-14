@@ -20,7 +20,8 @@ import {InventoryService} from "./services/inventory.service";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from '@angular/material/table';
 import { CartConfirmComponent } from './dashboard/cart/cart-confirm/cart-confirm.component';
-import {MatDialogModule} from '@angular/material/dialog'
+import {MatDialogModule} from '@angular/material/dialog';
+import { CartDeleteComponent } from './dashboard/cart/cart-delete/cart-delete.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatDialogModule} from '@angular/material/dialog'
     ItemlistComponent,
     CartComponent,
     LoginComponent,
-    CartConfirmComponent
+    CartConfirmComponent,
+    CartDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,6 @@ import {MatDialogModule} from '@angular/material/dialog'
     CartService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [CartConfirmComponent]
+  entryComponents: [CartConfirmComponent, CartDeleteComponent]
 })
 export class AppModule { }

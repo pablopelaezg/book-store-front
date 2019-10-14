@@ -3,6 +3,7 @@ import {CartService} from "../../services/cart.service";
 import {Item} from "../../model/item.model";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {CartConfirmComponent} from "./cart-confirm/cart-confirm.component";
+import {CartDeleteComponent} from "./cart-delete/cart-delete.component";
 
 @Component({
   selector: 'app-cart',
@@ -41,6 +42,16 @@ export class CartComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     this.dialog.open(CartConfirmComponent, dialogConfig);
+  }
+
+  openDeleteDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(CartDeleteComponent, dialogConfig);
   }
 
 }

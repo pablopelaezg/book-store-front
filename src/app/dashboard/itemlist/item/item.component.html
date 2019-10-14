@@ -1,16 +1,27 @@
 <div>
-  <h2>{{item.name}}</h2>
-  <span class="item-price">Precio: ${{item.price}}</span>
-  <h4>{{item.description}}</h4>
+  <h3 class="item-title">{{item.name}}</h3>
+  <span class="item-price">${{item.price}}</span>
 </div>
 
-<div><span>{{item.units > 0 ? "Cantidades disponibles: " + item.units : "Agotado"}}</span></div>
+<h5 class="item-description">{{item.description}}</h5>
+
+<mat-grid-list cols="2" [rowHeight]="50">
+  <mat-grid-tile>
+    <div>
+      <span>{{item.units > 0 ? "Cantidades disponibles: " + item.units : "Agotado"}}</span>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div *ngIf="item.units > 0">
+      <span>Añadir unidades: </span>
+      <input type="number" step="1" min="1" [max]="item.units" [(ngModel)]="qtyToAdd"/>
+
+      <button mat-raised-button style="margin-left: 15px" (click)="addToCart()">Añadir</button>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
 
 
-<div *ngIf="item.units > 0">
-  <span>Añadir unidades: </span>
-  <input type="number" step="1" min="1" [(ngModel)]="qtyToAdd"/>
 
-  <button mat-button (click)="addToCart()">Añadir</button>
-</div>
+
 

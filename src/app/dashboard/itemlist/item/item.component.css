@@ -11,10 +11,13 @@
   margin: 3px;
 }
 
-.available {
-  color: limegreen;
-}
-
 .out-of-stock {
   color: red;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  background-color: #e3e6e8; /* Modern Browsers */
 }

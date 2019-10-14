@@ -1,26 +1,33 @@
-<div>
-  <h3 class="item-title">{{item.name}}</h3>
-  <span class="item-price">${{item.price}}</span>
+<img [src]="'assets/covers/' + item.image + '.jpg'" align="left" height="120px">
+
+<div style="margin-left: 115px">
+  <div>
+    <h3 class="item-title">{{item.name}}</h3>
+    <span class="item-price">${{item.price}}</span>
+  </div>
+
+  <h5 class="item-description">{{item.description}}</h5>
+
+  <mat-grid-list cols="2" [rowHeight]="50">
+    <mat-grid-tile>
+      <div>
+        <span *ngIf="item.units > 0"> <strong>Disponibles:</strong> {{item.units}}</span>
+        <span *ngIf="item.units <=0" class="out-of-stock">Agotado</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div *ngIf="item.units > 0">
+        <span>Añadir unidades: </span>
+        <input type="number" step="1" min="1" [max]="item.units" [(ngModel)]="qtyToAdd"/>
+
+        <button mat-raised-button style="margin-left: 15px" (click)="addToCart()">Añadir</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
 
-<h5 class="item-description">{{item.description}}</h5>
+<hr>
 
-<mat-grid-list cols="2" [rowHeight]="50">
-  <mat-grid-tile>
-    <div>
-      <span *ngIf="item.units > 0"> <strong>Disponibles:</strong> {{item.units}}</span>
-      <span *ngIf="item.units <=0" class="out-of-stock">Agotado</span>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <div *ngIf="item.units > 0">
-      <span>Añadir unidades: </span>
-      <input type="number" step="1" min="1" [max]="item.units" [(ngModel)]="qtyToAdd"/>
-
-      <button mat-raised-button style="margin-left: 15px" (click)="addToCart()">Añadir</button>
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
 
 
 

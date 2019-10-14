@@ -10,3 +10,11 @@
 .item-description {
   margin: 3px;
 }
+
+.available {
+  color: limegreen;
+}
+
+.out-of-stock {
+  color: red;
+}

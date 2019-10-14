@@ -8,7 +8,8 @@
 <mat-grid-list cols="2" [rowHeight]="50">
   <mat-grid-tile>
     <div>
-      <span>{{item.units > 0 ? "Cantidades disponibles: " + item.units : "Agotado"}}</span>
+      <span *ngIf="item.units > 0"> <strong>Disponibles:</strong> {{item.units}}</span>
+      <span *ngIf="item.units <=0" class="out-of-stock">Agotado</span>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>

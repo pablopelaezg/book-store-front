@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {CartService} from "../../services/cart.service";
 import {Item} from "../../model/item.model";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {CartConfirmComponent} from "./cart-confirm/cart-confirm.component";
 
 @Component({
   selector: 'app-cart',
@@ -10,13 +12,35 @@ import {Item} from "../../model/item.model";
 export class CartComponent implements OnInit {
 
   private items: Array<Item>;
+  displayedColumns: string[] = ['action', 'name', 'price', 'units', 'subtotal'];
+  total: Number;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, public dialog: MatDialog) {
     this.items = new Array<Item>();
+    this.setTotal();
   }
 
   ngOnInit() {
     this.items = this.cartService.getCartItems();
+  }
+
+  deleteItemFromCart(item: Item) {
+    this.cartService.removeItemFromCart(item);
+    this.items = this.cartService.getCartItems();
+  }
+
+  setTotal() {
+    this.cartService.totalCart$.subscribe(total => this.total = total);
+  }
+
+  openConfirmDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(CartConfirmComponent, dialogConfig);
   }
 
 }

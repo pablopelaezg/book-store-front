@@ -1,9 +1,16 @@
-<h2>{{item.name}}</h2>
-<h4>{{item.description}}</h4>
+<div>
+  <h2>{{item.name}}</h2>
+  <span class="item-price">Precio: ${{item.price}}</span>
+  <h4>{{item.description}}</h4>
+</div>
 
-<span>{{item.units > 0 ? "Cantidades disponibles: " + item.units : "Agotado"}}</span>
+<div><span>{{item.units > 0 ? "Cantidades disponibles: " + item.units : "Agotado"}}</span></div>
 
-<span>Añadir unidades: </span>
-<input type="number" step="1" min="1" [ngModel]="qtyToAdd"/>
 
-<button mat-button (click)="addToCart()">Click me!</button>
+<div *ngIf="item.units > 0">
+  <span>Añadir unidades: </span>
+  <input type="number" step="1" min="1" [(ngModel)]="qtyToAdd"/>
+
+  <button mat-button (click)="addToCart()">Añadir</button>
+</div>
+

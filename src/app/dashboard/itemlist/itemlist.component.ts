@@ -14,7 +14,7 @@ export class ItemlistComponent implements OnInit {
 
   private itemList: Array<Item>;
   private totalElements: number;
-  private page: number = 1;
+  private page: number = 0;
   private pageSize: number= 5;
 
   ngOnInit() {

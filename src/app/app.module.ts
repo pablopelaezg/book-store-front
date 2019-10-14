@@ -18,7 +18,9 @@ import { LoginComponent } from './login/login.component';
 import {CartService} from "./services/cart.service";
 import {InventoryService} from "./services/inventory.service";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import { CartitemComponent } from './dashboard/cart/cartitem/cartitem.component';
+import {MatTableModule} from '@angular/material/table';
+import { CartConfirmComponent } from './dashboard/cart/cart-confirm/cart-confirm.component';
+import {MatDialogModule} from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { CartitemComponent } from './dashboard/cart/cartitem/cartitem.component'
     ItemlistComponent,
     CartComponent,
     LoginComponent,
-    CartitemComponent
+    CartConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -41,12 +43,15 @@ import { CartitemComponent } from './dashboard/cart/cartitem/cartitem.component'
     MatCardModule,
     MatGridListModule,
     AppRoutingModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [
     InventoryService,
     CartService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CartConfirmComponent]
 })
 export class AppModule { }

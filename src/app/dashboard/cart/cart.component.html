@@ -1,7 +1,44 @@
 <a routerLink="/items">Volver a productos</a>
 
-<div class="container">
-  <div class="item-container" *ngFor="let cartitem of items">
-    <app-cartitem [cartItem]="cartitem"></app-cartitem>
-  </div>
+<span class="no-items-msg" *ngIf="!this.cartService.hasItemsInCart()">No hay productos en el carrito</span>
+
+<div class="cart-container" *ngIf="this.cartService.hasItemsInCart()">
+  <table mat-table [dataSource]="items" class="mat-elevation-z8 cart-table">
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef class="cart-table-header"> Acción</th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="deleteItemFromCart(element)">X</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Precio Und.</th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="units">
+      <th mat-header-cell *matHeaderCellDef> Cantidad</th>
+      <td mat-cell *matCellDef="let element"> {{element.units}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subtotal">
+      <th mat-header-cell *matHeaderCellDef> Subtotal</th>
+      <td mat-cell *matCellDef="let element"> {{element.price * element.units}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <span>Total: {{total}}</span>
+
+  <button mat-raised-button (click)="openConfirmDialog()">Confirmar Compra</button>
 </div>
+
+

@@ -1,0 +1,14 @@
+<a routerLink="/cart">Ir al carrito</a>
+
+<div class="container">
+  <div class="item-container" *ngFor="let item of itemList">
+    <app-item [item]="item"></app-item>
+  </div>
+</div>
+
+<mat-paginator [length]="totalElements"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               [pageIndex]="page"
+               (page)="changePageEvent($event)">
+</mat-paginator>

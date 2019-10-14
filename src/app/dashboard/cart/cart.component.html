@@ -1,0 +1,7 @@
+<a routerLink="/items">Volver a productos</a>
+
+<div class="container">
+  <div class="item-container" *ngFor="let cartitem of items">
+    <app-cartitem [cartItem]="cartitem"></app-cartitem>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+mat-form-field {
+  margin: 10px;
+}
+
+.title {
+  text-align: center;
+}
+
+.options-wrapper{
+  text-align: center;
+}
+
+.option-select {
+  display: inline-block;
+  text-align: center;
+}
+
+.submit-button {
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+
+  .mat-form-field {
+    margin: 5px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .options-wrapper {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .option-select {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+}

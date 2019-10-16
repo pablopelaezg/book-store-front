@@ -21,7 +21,12 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from '@angular/material/table';
 import { CartConfirmComponent } from './dashboard/cart/cart-confirm/cart-confirm.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { CartDeleteComponent } from './dashboard/cart/cart-delete/cart-delete.component'
+import { CartDeleteComponent } from './dashboard/cart/cart-delete/cart-delete.component';
+import { RegisterComponent } from './register/register.component'
+import {AuthService} from "./services/auth.service";
+import {AuthGuardService} from "./auth/auth-guard.service";
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +37,8 @@ import { CartDeleteComponent } from './dashboard/cart/cart-delete/cart-delete.co
     CartComponent,
     LoginComponent,
     CartConfirmComponent,
-    CartDeleteComponent
+    CartDeleteComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,11 +53,14 @@ import { CartDeleteComponent } from './dashboard/cart/cart-delete/cart-delete.co
     AppRoutingModule,
     MatPaginatorModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [
     InventoryService,
-    CartService
+    CartService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent],
   entryComponents: [CartConfirmComponent, CartDeleteComponent]

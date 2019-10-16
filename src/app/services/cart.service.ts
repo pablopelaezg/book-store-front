@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Item} from "../model/item.model";
 import {BehaviorSubject} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {InvoiceItem} from "../model/invoiceitem.model";
 
@@ -67,14 +67,17 @@ export class CartService {
   }
 
   submitInvoice() {
-      this.http.post(environment.baseUrl + environment.uris.invoice, {
+
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+      .set('Access-Control-Allow-Origin', '*');
+      this.http.post(environment.baseStoreUrl + environment.storeUris.invoice, {
         itemsToBuy: Array.from(this.cart.values()).map<InvoiceItem>(item => {
           return {
             itemId: item.id,
             units: item.units
           }
         })
-      }).subscribe(result => {
+      }, {headers: headers}).subscribe(result => {
         this.clearCart();
       })
   }

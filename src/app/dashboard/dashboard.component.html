@@ -1,3 +1,4 @@
+<button mat-raised-button (click)="logOut()" style="float: right" *ngIf="authService.isAuthenticated()">Cerrar sesión</button>
 <div class="title-wrapper">
   <img class="store-logo" src="assets/harry-potter.svg"/>
   <h2 class="title">Book Store</h2>

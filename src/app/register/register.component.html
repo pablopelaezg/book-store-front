@@ -4,14 +4,22 @@
     <mat-card class="login-card">
 
       <div class="card-block">
-        <h2 class="login-title">Ingresa</h2>
+        <h2 class="login-title">Ingresa tus datos</h2>
+
+        <div>
+          <h4 class="login-field-label">Nombre</h4>
+          <mat-form-field>
+            <input matInput type="text" [(ngModel)]="name">
+          </mat-form-field>
+        </div>
 
         <div>
           <h4 class="login-field-label">Usuario</h4>
           <mat-form-field>
-            <input matInput type="text" [(ngModel)]="username">
+            <input matInput type="text" [(ngModel)]="user">
           </mat-form-field>
         </div>
+
         <div>
           <h4 class="login-field-label">Password</h4>
           <mat-form-field class="">
@@ -19,16 +27,11 @@
           </mat-form-field>
         </div>
 
-        <button mat-raised-button (click)="loginUser()" style="width: 100%">Login</button>
+        <button mat-raised-button (click)="registerUser()" style="width: 100%">Registrar</button>
       </div>
-
-      <h5>No te has registrado? <a routerLink="/register">Hazlo ya!</a></h5>
-
 
     </mat-card>
   </div>
 
 </div>
-
-
 

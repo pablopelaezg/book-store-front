@@ -4,8 +4,18 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:9091',
-  uris: {
+  baseAuthUrl: 'http://localhost:9092',
+  authUris: {
+    login: '/oauth/token',
+    user: '/user'
+  },
+  authConfig: {
+    grantType: 'password',
+    clientId: 'resource-server',
+    clientSecret: 'changeme'
+  },
+  baseStoreUrl: 'http://localhost:9091',
+  storeUris: {
     inventory: '/inventory',
     invoice: '/invoice'
   }

@@ -22,7 +22,7 @@ export class CartDeleteComponent implements OnInit {
   }
 
   onConfirm() {
-    this.cartService.submitInvoice();
+    this.cartService.clearCart();
     this.onNoClick();
     this.router.navigate(['/items']);
   }
